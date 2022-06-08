@@ -1,7 +1,8 @@
 import React from "react";
 
 import styles from "./taskApp.module.css";
-
+import {AddTask} from "./AddTask"
+import {Tasks} from "./Tasks"
 import { TaskHeader } from "./TaskHeader";
 
 const TaskApp = () => {
@@ -10,6 +11,8 @@ const TaskApp = () => {
     <div data-testid="task-app" className={styles.taskApp}>
       {/* Header */}
       <TaskHeader />
+      <AddTask></AddTask>
+      <Tasks></Tasks>
       {/* Add Task */}
       {/* Tasks */}
     </div>
