@@ -27,7 +27,7 @@ const Task = ({task, handleFunction}) => {
       <div data-testid="task-text">{task.text}</div>
       {/* Counter here */}
       <Counter counter ={task.count} handleCountTodo={handleCount}></Counter>
-      <button data-testid="task-remove-button"></button>
+      <button data-testid="task-remove-button">Delete</button>
     </li>
   );
 };
