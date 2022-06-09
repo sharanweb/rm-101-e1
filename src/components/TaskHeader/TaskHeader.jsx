@@ -4,7 +4,7 @@ import styles from "./taskHeader.module.css";
 const TaskHeader = ({tasks}) => {
   // sample values to be replaced
   let totalTask = tasks.length;
-  let unCompletedTask = tasks.filter((task) => !task.done).length;
+  let unCompletedTask = tasks.filter((el) => !el.done).length;
 
   // NOTE: do not delete `data-testid` key value pair
   return (

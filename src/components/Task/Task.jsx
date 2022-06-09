@@ -13,15 +13,17 @@ const Task = ({task, handleFunction}) => {
   }
 
   const handleCount = (el)=>{
-    handleFunction({
-      ...task,
-      count:el
-    })
+    if(el>0){
+      handleFunction({
+        ...task,
+        count:el
+      });
+    }
 
   }
   return (
     <li data-testid="task" className={styles.task}>
-      <input type="checkbox" data-testid="task-checkbox" onChange={toggleStatus} checked = {task.status}/>
+      <input type="checkbox" data-testid="task-checkbox" onChange={toggleStatus} checked = {task.done}/>
       <div data-testid="task-text">{task.text}</div>
       {/* Counter here */}
       <Counter counter ={task.count} handleCountTodo={handleCount}></Counter>
