@@ -9,16 +9,7 @@ import { v4 } from "uuid";
 const TaskApp = ({task}) => {
   const [tasks, setTasks] = useState(task);
 
-  const handleChange = (e)=>{
-    let val = tasks.reduce((acc, curr) => {
-      if(curr.id === e.id){
-        acc.push(e);
-      }else{
-        acc.push(curr);
-      }
-    },[]);
-    setTasks([...val])
-  }
+  
 
   const handleAddition = (e) =>{
     if(e && !tasks.some((task)=> task.text===e)){
@@ -31,13 +22,25 @@ const TaskApp = ({task}) => {
       setTasks([...tasks, obj]);
     }
   }
+
+  const handleUpdate = (updatedTask) => {
+    let newTodo = tasks.reduce((acc, curr) => {
+      if (curr.id === updatedTask.id) {
+        acc.push(updatedTask);
+      } else {
+        acc.push(curr);
+      }
+      return acc;
+    }, []);
+    setTasks([...newTodo]);
+  };
   // NOTE: do not delete `data-testid` key value pair
   return (
     <div data-testid="task-app" className={styles.taskApp}>
       {/* Header */}
       <TaskHeader  tasks = {tasks}/>
       <AddTask handleAddTodo = {handleAddition}></AddTask>
-      <Tasks tasks={tasks} handleChange={handleChange}></Tasks>
+      <Tasks tasks={tasks} handleChange={handleUpdate}></Tasks>
       {/* Add Task */}
       {/* Tasks */}
     </div>
