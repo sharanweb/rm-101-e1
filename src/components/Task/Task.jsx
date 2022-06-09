@@ -13,13 +13,16 @@ const Task = ({task, handleFunction}) => {
   }
 
   const handleCount = (el)=>{
-    if(el>0){
+    // if(el>0){
       handleFunction({
         ...task,
         count:el
       });
-    }
+    // }
+  }
 
+  const handleDelete =(data)=>{
+     
   }
   return (
     <li data-testid="task" className={styles.task}>
@@ -27,7 +30,7 @@ const Task = ({task, handleFunction}) => {
       <div data-testid="task-text">{task.text}</div>
       {/* Counter here */}
       <Counter counter ={task.count} handleCountTodo={handleCount}></Counter>
-      <button data-testid="task-remove-button">Delete</button>
+      <button data-testid="task-remove-button" onClick={()=>handleDelete}>Delete</button>
     </li>
   );
 };
